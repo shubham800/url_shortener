@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'company_id'
     ];
 
     /**
@@ -45,5 +47,26 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
+
+    public function shortUrls(){
+        return $this->hasMany(ShortUrl::class, 'created_by');
+    }
+
+    // Role helpers
+    public function isSuperAdmin() : bool {
+        return $this->role === 'SuperAdmin';
+    }
+
+    public function isAdmin() : bool {
+        return $this->role === 'Admin';
+    }
+
+    public function isMember() : bool {
+        return $this->role === 'Member';
     }
 }
