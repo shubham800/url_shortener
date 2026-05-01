@@ -17,7 +17,7 @@
                     </x-nav-link>
 
                     @if(auth()->user()->isSuperAdmin())
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Companies')}}</x-nav-link>
+                        <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.*')">{{__('Companies')}}</x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('All URLs')}}</x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Invite Admin')}}</x-nav-link>
                     @elseif(auth()->user()->isAdmin())
@@ -85,7 +85,7 @@
             </x-responsive-nav-link>
 
             @if(auth()->user()->isSuperAdmin())
-                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Companies')}}</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.*')">{{__('Companies')}}</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{ __('All URLs')}}</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Invite Admin')}}</x-responsive-nav-link>
             @elseif(auth()->user()->isAdmin())
