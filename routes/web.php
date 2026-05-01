@@ -31,6 +31,11 @@ Route::middleware('auth')->group(function () {
         Route::post('urls',[ShortUrlController::class, 'store'])->name('urls.store');
     });
 
+    // Admin only - Company URL list
+    Route::middleware('role:Admin,Member')->group(function(){
+        Route::get('urls', [ShortUrlController::class, 'index'])->name('urls.index');
+    });
+
     // invitations
     Route::middleware('role:SuperAdmin,Admin')->group(function(){
         Route::get('invite', [InvitationController::class, 'create'])->name('invitations.create');

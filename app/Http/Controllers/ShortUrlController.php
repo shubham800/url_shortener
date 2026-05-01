@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 
 class ShortUrlController extends Controller
 {
+    // Show All URLs to Super Admin 
     public function allUrls(Request $request){
         $urls = ShortUrl::with(['company','creator'])->latest()->paginate(20);
         return view('urls.all',compact('urls'));
+    }
+
+    // Show own company's URLs to Admin
+    public function index(Request $request){
+        $urls = ShortUrl::with('creator')->where('company_id',$request->user()->company_id)->latest()->paginate(20);
+        return view('urls.index',compact('urls'));
     }
 
     public function create(){
