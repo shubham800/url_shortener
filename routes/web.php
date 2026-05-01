@@ -32,8 +32,13 @@ Route::middleware('auth')->group(function () {
     });
 
     // Admin only - Company URL list
-    Route::middleware('role:Admin,Member')->group(function(){
+    Route::middleware('role:Admin')->group(function(){
         Route::get('urls', [ShortUrlController::class, 'index'])->name('urls.index');
+    });
+
+    // Member only - Own URL list
+    Route::middleware('role:Member')->group(function(){
+        Route::get('my-urls', [ShortUrlController::class, 'myUrls'])->name('urls.mine');
     });
 
     // invitations

@@ -16,7 +16,6 @@
                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Short URL</th>
                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Long URL</th>
                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Hits</th>
-                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">User</th>
                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Created On</th>
                             </tr>
                         </thead>
@@ -30,12 +29,11 @@
                                     </td>
                                     <td class="px-6 py-3 text-gray-600" style="text-align: center;">{{ Str::limit($url->original_url, 50) }}</td>
                                     <td class="px-6 py-3" style="text-align: center;">{{ $url->hits }}</td>
-                                    <td class="px-6 py-3" style="text-align: center;">{{ $url->creator->name }}</td>
                                     <td class="px-6 py-3" style="text-align: center;">{{ $url->created_at->format('d M y') }}</td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="px-6 py-4 text-center text-gray-500" style="text-align: center;">
+                                    <td colspan="4" class="px-6 py-4 text-center text-gray-500" style="text-align: center;">
                                         No URLs found
                                     </td>
                                 </tr>

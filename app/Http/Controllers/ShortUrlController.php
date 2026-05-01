@@ -19,6 +19,12 @@ class ShortUrlController extends Controller
         return view('urls.index',compact('urls'));
     }
 
+    // Show own URLs to Member
+    public function myUrls(Request $request){
+        $urls = ShortUrl::where('created_by',$request->user()->id)->latest()->paginate(20);
+        return view('urls.mine',compact('urls'));
+    }
+
     public function create(){
         return view('urls.create');
     }
