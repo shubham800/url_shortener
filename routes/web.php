@@ -17,6 +17,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Short url resolve
+Route::get('s/{code}',[ShortUrlController::class, 'resolve'])->name('urls.resolve');
+
 Route::middleware('auth')->group(function () {
 
     // Super Admin
