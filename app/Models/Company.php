@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Company extends Model
 {
+
+    /** @use HasFactory<UserFactory> */
+    use HasFactory;
+
     protected $fillable = ['name', 'slug'];
 
     protected static function booted() : void

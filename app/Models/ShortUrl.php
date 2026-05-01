@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ShortUrl extends Model
 {
+    /** @use HasFactory<UserFactory> */
+    use HasFactory;
+    
     protected $fillable = ['company_id', 'created_by', 'original_url', 'short_code'];
 
     protected static function booted() : void

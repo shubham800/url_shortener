@@ -46,6 +46,11 @@ class ShortUrlController extends Controller
     // Resolve Short URLs
     public function resolve(string $code){
         $url = ShortUrl::where('short_code',$code)->firstOrFail();
+
+        if (!$url) {
+            abort(404);
+        }
+
         $url->increment('hits');
         return redirect()->away($url->original_url);
     }
