@@ -24,7 +24,7 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
 
-                        <button type="submit" class="px-5 py-2 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">Submit</button>
+                        <button type="submit" class="px-5 py-2 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition" style="border: 1px solid;">Submit</button>
                     </div>
                 </form>
 

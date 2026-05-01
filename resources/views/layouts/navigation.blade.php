@@ -19,11 +19,11 @@
                     @if(auth()->user()->isSuperAdmin())
                         <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.*')">{{__('Companies')}}</x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('All URLs')}}</x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Invite Admin')}}</x-nav-link>
+                        <x-nav-link :href="route('invitations.create')" :active="request()->routeIs('invitations.create')">{{__('Invite Admin')}}</x-nav-link>
                     @elseif(auth()->user()->isAdmin())
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('URLs')}}</x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Generate URL')}}</x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Invite')}}</x-nav-link>
+                        <x-nav-link :href="route('invitations.create')" :active="request()->routeIs('invitations.create')">{{__('Invite')}}</x-nav-link>
                     @else
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('My URLs')}}</x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Generate URL')}}</x-nav-link>
@@ -87,11 +87,11 @@
             @if(auth()->user()->isSuperAdmin())
                 <x-responsive-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.*')">{{__('Companies')}}</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{ __('All URLs')}}</x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Invite Admin')}}</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('invitations.create')" :active="request()->routeIs('invitations.create')">{{__('Invite Admin')}}</x-responsive-nav-link>
             @elseif(auth()->user()->isAdmin())
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('URLs')}}</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Generate URL')}}</x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Invite')}}</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('invitations.create')" :active="request()->routeIs('invitations.create')">{{__('Invite')}}</x-responsive-nav-link>
             @else
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('My URLs')}}</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{__('Generate URL')}}</x-responsive-nav-link>
