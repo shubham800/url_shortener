@@ -29,7 +29,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="px-6 py-4 text-center text-gray-500">
+                                    <td colspan="4" class="px-6 py-4 text-center text-gray-500" style="text-align: center;">
                                         No companies found
                                     </td>
                                 </tr>

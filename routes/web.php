@@ -3,6 +3,7 @@
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShortUrlController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('role:SuperAdmin')->group(function(){
         Route::resource('companies', CompanyController::class)->only(['index','create','store']);
+        Route::get('all-urls',[ShortUrlController::class, 'allUrls'])->name('urls.all');
     });
 
     // invitations

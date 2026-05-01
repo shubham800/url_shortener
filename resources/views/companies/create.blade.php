@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Companies') }} | <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">{{__('List')}}</x-nav-link>
+            {{ __('Companies') }} | <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">{{__('List')}}</x-nav-link>
         </h2>
     </x-slot>
 
