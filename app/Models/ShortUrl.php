@@ -23,7 +23,7 @@ class ShortUrl extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function user(){
+    public function creator(){
         return $this->belongsTo(User::class, 'created_by');
     }
 }

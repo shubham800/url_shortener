@@ -19,9 +19,16 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
+    // Super Admin
     Route::middleware('role:SuperAdmin')->group(function(){
         Route::resource('companies', CompanyController::class)->only(['index','create','store']);
         Route::get('all-urls',[ShortUrlController::class, 'allUrls'])->name('urls.all');
+    });
+
+    // Admin + Member - Create Urls
+    Route::middleware('role:Admin,Member')->group(function(){
+        Route::get('urls/create', [ShortUrlController::class, 'create'])->name('urls.create');
+        Route::post('urls',[ShortUrlController::class, 'store'])->name('urls.store');
     });
 
     // invitations

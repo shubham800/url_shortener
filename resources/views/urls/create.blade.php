@@ -1,31 +1,31 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Companies') }} | <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">{{__('List')}}</x-nav-link>
+            {{ __('All URLs') }}
         </h2>
     </x-slot>
 
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-            
-                <form method="POST" action="{{ route('companies.store') }}" class="space-y-5">
+            <div class="bg-white shadow-sm rounded-lg p-6">
+
+                <form method="POST" action="{{ route('urls.store') }}" class="space-y-5">
                     @csrf
                     <div style="display: flex;justify-content: center;align-items: end;">
-
                         <div>
                             <label>Long URL</label>
                             <br>
-                            <input type="text"
-                                name="name"
-                                placeholder="Company Name"
+                            <input type="url"
+                                name="original_url"
+                                placeholder="e.g. https://google.com/"
                                 class=" border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200"
                                 required
-                                value="{{ old('name') }}">
-    
-                            @error('name')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
+                                value="{{ old('original_url') }}" 
+                                size="60">
+
+                                @error('original_url')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                         </div>
 
                         <div style="margin-left: 10px;">
