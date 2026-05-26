@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ShortUrl;
 use Illuminate\Http\Request;
+use App\Exports\UrlsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ShortUrlController extends Controller
 {
@@ -53,5 +55,13 @@ class ShortUrlController extends Controller
 
         $url->increment('hits');
         return redirect()->away($url->original_url);
+    }
+
+    public function export()
+    {
+        return Excel::download(
+            new UrlsExport(),
+            'urls.xlsx'
+        );
     }
 }

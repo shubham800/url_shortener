@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function () {
         Route::post('invite', [InvitationController::class, 'store'])->name('invitations.store');
     });
 
+    Route::get('/export-urls', [ShortUrlController::class, 'export'])->name('urls.export');
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

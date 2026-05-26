@@ -2,6 +2,10 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('All URLs') }}
+            
+            @if($urls->count() > 0)
+            | <x-nav-link :href="route('urls.export')">{{__('Export URLs')}}</x-nav-link>
+            @endif
         </h2>
     </x-slot>
 
